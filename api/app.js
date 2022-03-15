@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
+
+app.use(cors())
 
 const { tiktokdownload } = require('tiktok-scraper-without-watermark')
 
@@ -8,9 +11,9 @@ const APP_TOKEN = '463asdf46sdfjiugbjfwef4653sdf'
 app.use(express.json())
 
 app.post('/getVideo', (req, res)=>{
-    const { url_video } = req.body
+    const { urlVideo } = req.body
     if (!!req.header('authorization') && req.header('authorization').split(' ')[1]===APP_TOKEN) {
-        tiktokdownload(url_video).then(result => {
+        tiktokdownload(urlVideo).then(result => {
             if (!!result.nowm) {
                 res.json({
                     error : false,

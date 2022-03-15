@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start" : "node bin/www.js"
+    "start": "node bin/www.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "tiktok-scraper-without-watermark": "^1.1.3"
   }
